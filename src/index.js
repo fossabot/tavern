@@ -1,4 +1,4 @@
 import { h, render } from 'preact'
-import { App } from './app'
+import { APP_ROOT, App } from './app'
 
-render(<App />, document.getElementById('root'))
+render(<App />, document.body, document.querySelector(`#${APP_ROOT}`))
