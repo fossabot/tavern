@@ -1,7 +1,13 @@
-import { h, render } from 'preact'
+import { h } from 'preact'
+import { Link } from 'preact-router/match'
 
-export const APP_ROOT = 'app-root'
-
-export const App = () => <div id={APP_ROOT}>Miau!</div>
+export const App = ({children}) => <div>
+  <nav>
+    <Link activeClassName="active" href="/">Home</Link>
+    <Link activeClassName="active" href="/character">Character</Link>
+    <Link activeClassName="active" href="/character/add">Add</Link>
+  </nav>
+  {children}
+</div>
 
 export default App

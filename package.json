@@ -14,10 +14,16 @@
     "open:dev": "google-chrome --user-data-dir=.tmp-chrome --remote-debugging-port=9222 https://localhost:1234"
   },
   "dependencies": {
-    "preact": "^8.2.7"
+    "history": "^4.7.2",
+    "preact": "^8.2.7",
+    "preact-redux": "^2.0.3",
+    "preact-router": "^2.6.0",
+    "preact-router-redux": "^4.1.0",
+    "redux": "^3.7.2"
   },
   "devDependencies": {
     "autoprefixer": "^7.2.4",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-plugin-transform-react-jsx": "^6.24.1",
     "babel-preset-env": "^1.6.1",
     "babel-preset-flow": "^6.23.0",
