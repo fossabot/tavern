@@ -1,7 +1,14 @@
 {
-  "presets": ["env", "preact", "flow"],
+  "presets": ["env", "preact"],
   "plugins": [
-    ["transform-react-jsx", { "pragma":"h" }],
+    "transform-function-bind",
+    ["transform-react-jsx", { "pragma": "h" }],
+    ["module-resolver", {
+      "root": ["."],
+      "alias": {
+        "@app": "./src"
+      }
+    }],
     "transform-object-rest-spread"
   ]
 }

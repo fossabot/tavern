@@ -1,26 +1,16 @@
 import { h, render } from 'preact'
 import { Provider, connect } from 'preact-redux'
 import { Router } from 'preact-router'
+import { syncHistoryWithStore } from 'preact-router-redux'
 import createBrowserHistory from 'history/createBrowserHistory'
-import { syncHistoryWithStore, routerReducer } from 'preact-router-redux'
-import { createStore, combineReducers } from 'redux'
 
 import { MOUNT_POINT, Routes } from './routes'
-import { initialAppState, AppReducer } from './reducers'
+import configureStore from './store'
+import './index.scss'
 
-const initialRootState = {
-  app: initialAppState
-}
+const initialRootState = {}
 
-const store = createStore(combineReducers({
-  app: AppReducer,
-  routing: routerReducer
-}),
-  initialRootState,
-  typeof devToolsExtension === 'function'
-    ? devToolsExtension()
-    : undefined
-)
+const store = configureStore()
 
 const browserHistory = createBrowserHistory()
 const history = syncHistoryWithStore(browserHistory, store)

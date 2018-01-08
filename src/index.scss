@@ -1,0 +1,23 @@
+:root {
+  --mdc-theme-primary: rebeccapurple;
+  --mdc-theme-secondary: blue;
+  --mdc-theme-background: #ccc;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  main {
+    height: 100vh;
+  }
+}
+
