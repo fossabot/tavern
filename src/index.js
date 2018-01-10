@@ -13,7 +13,7 @@ const initialRootState = {}
 const store = configureStore()
 
 const browserHistory = createBrowserHistory()
-const history = syncHistoryWithStore(browserHistory, store)
+export const history = syncHistoryWithStore(browserHistory, store)
 
 const Main = () => (
   <Provider store={store}>

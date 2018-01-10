@@ -12,6 +12,7 @@ import List from 'preact-material-components/List'
 import 'preact-material-components/List/style.css'
 
 import { AppActions } from './store'
+import drawerBg from './drawer-bg.jpg'
 import s from './app.scss'
 
 const render = ({
@@ -23,6 +24,9 @@ const render = ({
   <Toolbar>
     <Toolbar.Row>
       <Toolbar.Section className={s.Links} align-start={true}>
+        <Toolbar.Icon onClick={openDrawer}>
+          <Icon>arrow_back</Icon>
+        </Toolbar.Icon>
         <Toolbar.Icon
           menu={true}
           onClick={openDrawer}
@@ -39,7 +43,7 @@ const render = ({
     <Drawer.TemporaryDrawerHeader
       className={s.DrawerHeader}
     >
-      <img className={s.DrawerHeaderBg} src="http://6d6rpg.com/wp-content/uploads/sites/2/2009/04/fantasyart.jpg" alt="Fantasy"/>
+      <img className={s.DrawerHeaderBg} src={drawerBg} alt="Fantasy"/>
     </Drawer.TemporaryDrawerHeader>
     <Drawer.TemporaryDrawerContent>
       <List>
@@ -53,13 +57,7 @@ const render = ({
           activeClassName={s.active}
           href="/character"
         >
-          <List.LinkItem onClick={closeDrawer}>Character</List.LinkItem>
-        </Link>
-        <Link
-          activeClassName={s.active}
-          href="/character/add"
-        >
-          <List.LinkItem onClick={closeDrawer}>Add</List.LinkItem>
+          <List.LinkItem onClick={closeDrawer}>Characters</List.LinkItem>
         </Link>
       </List>
     </Drawer.TemporaryDrawerContent>
