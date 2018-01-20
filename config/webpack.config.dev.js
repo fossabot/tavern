@@ -88,10 +88,7 @@ module.exports = {
       // Support React Native Web
       // https://www.smashingmagazine.com/2016/08/a-glimpse-into-the-future-with-react-native-for-web/
       'react-native': 'react-native-web',
-      'react': 'nervjs',
-      'react-dom': 'nervjs',
-      // Not necessary unless you consume a module using `createClass`
-      'create-react-class': 'nerv-create-class'
+      '@app': paths.appSrc
     },
     plugins: [
       // Prevents users from importing files from outside of src/ (or node_modules/).
