@@ -4,8 +4,9 @@
   "private": true,
   "license": "MIT",
   "scripts": {
-    "start": "run-p serve:web",
-    "serve:web": "node scripts/start.js --no-open",
+    "start": "run-p serve open:dev",
+    "open:dev": "google-chrome --user-data-dir=.tmp-chrome --remote-debugging-port=9222 http://localhost:3001",
+    "serve": "node scripts/start.js --no-open",
     "build": "node scripts/build.js",
     "test": "node scripts/test.js --env=jsdom"
   },
@@ -55,7 +56,8 @@
   "dependencies": {
     "classnames": "^2.2.5",
     "history": "^4.7.2",
-    "material-ui": "^0.20.0",
+    "material-ui": "^1.0.0-beta.29",
+    "material-ui-icons": "^1.0.0-beta.17",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-helmet": "^5.2.0",
