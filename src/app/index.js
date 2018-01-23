@@ -1,45 +1,67 @@
 import React from 'react'
-import { Route, Router } from 'react-router-dom'
+import { Link, Route } from 'react-router-dom'
 
-import {
-  createStore,
-  combineReducers,
-  compose,
-  applyMiddleware
-} from 'redux'
-import { Provider } from 'react-redux'
-import createHistory from 'history/createBrowserHistory'
-import { routerReducer, routerMiddleware } from 'react-router-redux'
-
-import { MuiThemeProvider, createMuiTheme } from 'material-ui/styles'
+import AppBar from 'material-ui/AppBar'
+import Drawer from 'material-ui/Drawer'
+import IconButton from 'material-ui/IconButton'
+import List, { ListItem } from 'material-ui/List'
+import Toolbar from 'material-ui/Toolbar'
+import MenuIcon from 'material-ui-icons/Menu'
+import HomeIcon from 'material-ui-icons/Home'
+import ChevronLeftIcon from 'material-ui-icons/ChevronLeft'
+import Typography from 'material-ui/Typography'
+import Divider from 'material-ui/Divider'
 
 import Home from '@app/home'
-import rootReducer from '@app/reducers'
+import { appActions } from './reducer'
+import { connect } from 'react-redux'
 
-const history = createHistory()
-
-const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
-
-const store = createStore(
-  combineReducers({
-    ...rootReducer,
-    routing: routerReducer
-  }),
-  composeEnhancers(
-    applyMiddleware(routerMiddleware(history))
-  )
+const App = ({ showDrawer, toggleDrawer, history }) => (
+  <div>
+    <AppBar position='static' color='primary'>
+      <Toolbar disableGutters={true}>
+        <IconButton
+          color='contrast'
+          aria-label='Menu'
+          onClick={() => toggleDrawer()}
+        >
+          <MenuIcon />
+        </IconButton>
+        <Typography type='title' color='inherit'>
+          Title
+        </Typography>
+      </Toolbar>
+    </AppBar>
+    <Drawer
+      open={showDrawer}
+      onClose={(e, reason) => toggleDrawer(false)}
+    >
+      <IconButton onClick={() => toggleDrawer(false)}>
+        <ChevronLeftIcon />
+      </IconButton>
+      <Divider />
+      <List>
+        <ListItem>
+          <Link to={'/'}>
+            <HomeIcon />Home
+          </Link>
+        </ListItem>
+      </List>
+    </Drawer>
+    <Route exact path="/" component={Home} />
+  </div>
 )
 
-const theme = createMuiTheme()
+const mapStateToProps = ({
+  app: {
+    showDrawer
+  }
+}) => ({
+  showDrawer
+})
 
-const App = () => (
-  <MuiThemeProvider theme={theme}>
-    <Provider store={store}>
-      <Router history={history}>
-        <Route exact path="/" component={Home} />
-      </Router>
-    </Provider>
-  </MuiThemeProvider>
-)
+const mapDispatchToProps = dispatch => ({
+  toggleDrawer: show => dispatch(appActions.toggleDrawer(show))
+})
 
-export default App
+export default connect(mapStateToProps, mapDispatchToProps)(App)

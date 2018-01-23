@@ -1,9 +1,9 @@
-import home from './home/reducer'
+import app from './app/reducer'
 
-export * from './home/reducer'
+export * from './app/reducer'
 
 export const rootReducer = {
-  home
+  app
 }
 
 export default rootReducer

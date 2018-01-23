@@ -4,7 +4,7 @@ const actions = {
   TOGGLE_DRAWER: `${prefix}TOGGLE_DRAWER`
 }
 
-export const homeActions = {
+export const appActions = {
   ...actions,
   toggleDrawer: (show) => ({
     type: actions.TOGGLE_DRAWER,
@@ -18,7 +18,7 @@ export const defaultState = {
 
 export const homeReducer = (state = defaultState, action) => {
   switch (action.type) {
-    case homeActions.TOGGLE_DRAWER: {
+    case appActions.TOGGLE_DRAWER: {
       const { show } = action
       return ({
         ...state,
