@@ -21,3 +21,6 @@ yarn-debug.log*
 yarn-error.log*
 
 .tmp-chrome
+.next
+stats.json
+package-lock.json
