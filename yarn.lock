@@ -3070,9 +3070,9 @@ https-proxy-agent@^2.1.0:
     agent-base "^4.1.0"
     debug "^3.1.0"
 
-hygen@^1.4.6:
-  version "1.4.6"
-  resolved "https://registry.yarnpkg.com/hygen/-/hygen-1.4.6.tgz#403896bece42fe13507358eb86fa05370a34633b"
+hygen@^1.4.8:
+  version "1.4.8"
+  resolved "https://registry.yarnpkg.com/hygen/-/hygen-1.4.8.tgz#94654bf6f2b06812e0f8a613a7c1aee1a5e99a89"
   dependencies:
     chalk "^2.1.0"
     ejs "^2.5.7"

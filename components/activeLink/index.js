@@ -5,13 +5,20 @@ export const ActiveLink = ({
   href,
   router,
   prefetch,
+  onNavigate,
+  delay,
   render: LinkContent
-}) => {
-  return (
-  <Link href={href} prefetch={prefetch}>
+}) => (
+  <div
+    onClick={() => {
+      if (router.pathname !== href) {
+        onNavigate && onNavigate()
+        setTimeout(() => router.push(href), delay)
+      }
+    }}
+  >
     <LinkContent active={router.pathname === href} />
-  </Link>
+  </div>
 )
-}
 
 export default withRouter(ActiveLink)

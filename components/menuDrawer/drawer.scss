@@ -1,12 +1,17 @@
 .item {
+  padding-right: 25px !important;
   &:hover {
     cursor: pointer;
   }
   &.itemActive {
+    color: #666;
     background-color: #efefef;
     &:hover {
       cursor: default;
     }
   }
+}
+.itemIcon {
+  margin-right: 15px;
 }
 

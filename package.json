@@ -75,7 +75,7 @@
     "dotenv": "4.0.0",
     "dotenv-expand": "4.0.1",
     "eslint": "4.10.0",
-    "hygen": "^1.4.6",
+    "hygen": "^1.4.8",
     "jest": "20.0.4",
     "node-sass": "^4.7.2",
     "npm-run-all": "^4.1.2",
