@@ -16,7 +16,7 @@ export const defaultState = {
   showDrawer: false
 }
 
-export const homeReducer = (state = defaultState, action) => {
+export const appReducer = (state = defaultState, action) => {
   switch (action.type) {
     case appActions.TOGGLE_DRAWER: {
       const { show } = action
@@ -32,4 +32,4 @@ export const homeReducer = (state = defaultState, action) => {
   }
 }
 
-export default homeReducer
+export default appReducer

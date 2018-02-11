@@ -1,0 +1,12 @@
+.item {
+  &:hover {
+    cursor: pointer;
+  }
+  &.itemActive {
+    background-color: #efefef;
+    &:hover {
+      cursor: default;
+    }
+  }
+}
+
