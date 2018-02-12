@@ -1,7 +1,8 @@
 const prefix = 'HOME/'
 
 const actions = {
-  TOGGLE_DRAWER: `${prefix}TOGGLE_DRAWER`
+  TOGGLE_DRAWER: `${prefix}TOGGLE_DRAWER`,
+  SET_PAGE_TITLE: `${prefix}SET_PAGE_TITLE`
 }
 
 export const appActions = {
@@ -9,6 +10,10 @@ export const appActions = {
   toggleDrawer: (show) => ({
     type: actions.TOGGLE_DRAWER,
     show
+  }),
+  setPageTitle: (title) => ({
+    type: actions.SET_PAGE_TITLE,
+    title
   })
 }
 
@@ -23,6 +28,14 @@ export const appReducer = (state = defaultState, action) => {
       return ({
         ...state,
         showDrawer: show ? show : !state.showDrawer
+      })
+    }
+
+    case appActions.SET_PAGE_TITLE: {
+      const { title } = action
+      return ({
+        ...state,
+        pageTitle: title
       })
     }
 

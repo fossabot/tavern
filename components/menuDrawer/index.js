@@ -16,6 +16,11 @@ import s from './drawer.scss'
 
 const drawerDelay = 300
 
+const pages = [
+  { path: '/', title: 'Home', Icon: HomeIcon },
+  { path: '/about', title: 'About', Icon: InfoIcon }
+]
+
 export const MenuDrawer = ({
   showDrawer,
   toggleDrawer
@@ -30,26 +35,21 @@ export const MenuDrawer = ({
     </IconButton>
     <Divider />
     <List>
-      <ActiveLink href='/' prefetch
-        delay={drawerDelay}
-        onNavigate={() => toggleDrawer(false)}
-        render={({ active }) => (
-          <ListItem className={cx(s.item, {[s.itemActive]: active})}>
-            <HomeIcon className={cx(s.itemIcon)} />
-            Home
-          </ListItem>
-        )}
-      />
-      <ActiveLink href='/about' prefetch
-        delay={drawerDelay}
-        onNavigate={() => toggleDrawer(false)}
-        render={({ active }) => (
-          <ListItem className={cx(s.item, {[s.itemActive]: active})}>
-            <InfoIcon className={cx(s.itemIcon)} />
-            About
-          </ListItem>
-        )}
-      />
+      {pages.map(({ path, title, Icon }, i) => (
+        <ActiveLink
+          key={i}
+          prefetch
+          href={path}
+          delay={drawerDelay}
+          onNavigate={() => toggleDrawer(false)}
+          render={({ active }) => (
+            <ListItem className={cx(s.item, {[s.itemActive]: active})}>
+              <Icon className={cx(s.itemIcon)} />
+              {title}
+            </ListItem>
+          )}
+        />
+      ))}
     </List>
   </Drawer>
 )

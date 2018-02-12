@@ -1,28 +1,50 @@
 ---
 to: pages/<%= name %>/index.js
 ---
-<%
-const classify = () => h.inflection.classify(h.inflection.titleize(name)).replace(/\-/g, '')
-const humanize = () => h.inflection.humanize(name).replace(/\-/g, ' ')
-%>
+<% const classify = () => h.inflection.classify(h.inflection.titleize(name)).replace(/\-/g, '')
+const humanize = () => h.inflection.humanize(name).replace(/\-/g, ' ') %>
+import { Component } from 'react'
+import { createPortal } from 'react-dom'
 import withRedux from 'next-redux-wrapper'
 import Head from 'next/head'
 import cx from 'classnames'
 
-import Layout from '@components/layout'
 import makeStore from '@components/store'
+import Layout from '@components/layout'
+import { appActions } from '@components/app/reducer'
 
 import s from './index.scss'
 
-let <%= classify(name) %> = () => (
-  <Layout>
-    <Head>
-      <title><%= humanize(name) %> | Tavern</title>
-    </Head>
-    <h1 className={cx(s.pageTitle)}><%= humanize(name) %></h1>
-  </Layout>
-)
+export class <%= classify(name) %> extends Component {
+  constructor ({ setPageTitle }) {
+    super()
+    this.setPageTitle = setPageTitle
+  }
 
-<%= classify(name) %> = withRedux(makeStore, store => store)(<%= classify(name) %>)
+  componentDidMount () {
+    this.setPageTitle('<%= humanize(name) %>')
+  }
+
+  componentWillUnmount () {
+    this.setPageTitle('')
+  }
+
+  render () {
+    return (
+      <Layout>
+        <Head>
+          <title><%= humanize(name) %> | Tavern</title>
+        </Head>
+        <h1 className={cx(s.pageTitle)}><%= humanize(name) %></h1>
+      </Layout>
+    )
+  }
+}
+
+const mapDispatchToProps = (dispatch) => ({
+  setPageTitle: (title) => dispatch(appActions.setPageTitle(title))
+})
+
+<%= classify(name) %> = withRedux(makeStore, store => store, mapDispatchToProps)(<%= classify(name) %>)
 
 export default <%= classify(name) %>

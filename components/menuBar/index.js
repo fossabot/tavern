@@ -9,6 +9,7 @@ import MenuIcon from 'material-ui-icons/Menu'
 import { appActions } from '@components/app/reducer'
 
 export const MenuBar = ({
+  pageTitle,
   toggleDrawer
 }) => (
   <AppBar position='static' color='primary'>
@@ -21,13 +22,13 @@ export const MenuBar = ({
         <MenuIcon />
       </IconButton>
       <Typography type='title' color='inherit'>
-        Title
+        {pageTitle}
       </Typography>
     </Toolbar>
   </AppBar>
 )
 
-const mapStateToProps = (state) => (state)
+const mapStateToProps = ({ app: { pageTitle }}) => ({ pageTitle })
 
 const mapDispatchToProps = dispatch => ({
   toggleDrawer: show => dispatch(appActions.toggleDrawer(show))

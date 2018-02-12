@@ -10,10 +10,11 @@ export const ActiveLink = ({
   render: LinkContent
 }) => (
   <div
-    onClick={() => {
+    onClick={async () => {
       if (router.pathname !== href) {
-        onNavigate && onNavigate()
-        setTimeout(() => router.push(href), delay)
+        onNavigate && await onNavigate()
+        await new Promise(resolve => setTimeout(resolve, delay - 100))
+        router.push(href)
       }
     }}
   >
