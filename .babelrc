@@ -1,0 +1,14 @@
+{
+  "env": {
+    "test": {
+      "presets": [
+        ["env", {
+          "modules": "commonjs",
+          "useBuiltIns": "usage",
+          "debug": false
+        }],
+        "next/babel"
+      ]
+    }
+  }
+}
