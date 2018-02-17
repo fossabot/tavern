@@ -1,5 +1,4 @@
-import Link from 'next/link'
-import { withRouter } from 'next/router'
+import Router, { withRouter } from 'next/router'
 
 export const ActiveLink = ({
   href,
@@ -8,18 +7,24 @@ export const ActiveLink = ({
   onNavigate,
   delay,
   render: LinkContent
-}) => (
-  <div
-    onClick={async () => {
-      if (router.pathname !== href) {
-        onNavigate && await onNavigate()
-        await new Promise(resolve => setTimeout(resolve, delay - 100))
-        router.push(href)
-      }
-    }}
-  >
-    <LinkContent active={router.pathname === href} />
-  </div>
-)
+}) => {
+  const isActive = router.pathname === href
+  if (!isActive) {
+    Router.prefetch(href)
+  }
+  return (
+    <div
+      onClick={async () => {
+        if (!isActive) {
+          onNavigate && await onNavigate()
+          await new Promise(resolve => setTimeout(resolve, delay - 100))
+          router.push(href)
+        }
+      }}
+    >
+      <LinkContent active={router.pathname === href} />
+    </div>
+  )
+}
 
 export default withRouter(ActiveLink)

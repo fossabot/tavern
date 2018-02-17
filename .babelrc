@@ -1,13 +1,33 @@
 {
   "env": {
+    "development": {
+      "presets": [
+        ["next/babel", {
+          "preset-env": {
+            "modules": false,
+            "useBuiltIns": "usage"
+          }
+        }]
+      ]
+    },
+    "production": {
+      "presets": [
+        ["next/babel", {
+          "preset-env": {
+            "modules": false,
+            "useBuiltIns": "usage"
+          }
+        }]
+      ]
+    },
     "test": {
       "presets": [
-        ["env", {
-          "modules": "commonjs",
-          "useBuiltIns": "usage",
-          "debug": false
-        }],
-        "next/babel"
+        ["next/babel", {
+          "preset-env": {
+            "modules": "commonjs",
+            "useBuiltIns": "usage"
+          }
+        }]
       ]
     }
   }

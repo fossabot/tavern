@@ -1,8 +1,9 @@
+import { Children, cloneElement } from 'react'
 import { SheetsRegistry } from 'react-jss/lib/jss'
 import JssProvider from 'react-jss/lib/JssProvider'
 
 import { MuiThemeProvider, createMuiTheme, createGenerateClassName } from 'material-ui/styles'
-import { lightGreen, lime, orange } from 'material-ui/colors'
+import { teal, lime, orange } from 'material-ui/colors'
 
 import MenuBar from '@components/menuBar'
 import MenuDrawer from '@components/menuDrawer'
@@ -13,9 +14,21 @@ const generateClassName = createGenerateClassName()
 const theme = createMuiTheme({
   palette: {
     type: 'light',
-    primary: lightGreen,
-    secondary: lime,
-    error: orange,
+    primary: {
+      light: teal[700],
+      main: teal[800],
+      dark: teal[900]
+    },
+    secondary: {
+      light: lime[700],
+      main: lime[800],
+      dark: lime[900]
+    },
+    error: {
+      light: orange[700],
+      main: orange[800],
+      dark: orange[900]
+    },
     contrastThreshold: 3,
     tonalOffset: 0.2
   }
@@ -23,12 +36,14 @@ const theme = createMuiTheme({
   userAgent: 'all'
 })
 
-const Layout = ({ children }) => (
+const Layout = ({ pageTitle, children }) => (
   <JssProvider registry={sheetsRegistry} generateClassName={generateClassName}>
     <MuiThemeProvider theme={theme}>
-      <MenuBar />
-      <MenuDrawer />
-      {children}
+      <div id="__layoutRoot">
+        <MenuBar title={pageTitle} />
+        <MenuDrawer />
+        {children}
+      </div>
     </MuiThemeProvider>
   </JssProvider>
 )

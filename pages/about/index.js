@@ -6,40 +6,20 @@ import cx from 'classnames'
 
 import makeStore from '@components/store'
 import Layout from '@components/layout'
+import MenuBar from '@components/menuBar'
 import { appActions } from '@components/app/reducer'
 
 import s from './index.scss'
 
-export class About extends Component {
-  constructor ({ setPageTitle }) {
-    super()
-    this.setPageTitle = setPageTitle
-  }
+export let About = () => (
+  <Layout pageTitle='About'>
+    <Head>
+      <title>About | Tavern</title>
+    </Head>
+    <h1 className={cx(s.pageTitle)}>About</h1>
+  </Layout>
+)
 
-  componentDidMount () {
-    this.setPageTitle('About')
-  }
-
-  componentWillUnmount () {
-    this.setPageTitle('')
-  }
-
-  render () {
-    return (
-      <Layout>
-        <Head>
-          <title>About | Tavern</title>
-        </Head>
-        <h1 className={cx(s.pageTitle)}>About</h1>
-      </Layout>
-    )
-  }
-}
-
-const mapDispatchToProps = (dispatch) => ({
-  setPageTitle: (title) => dispatch(appActions.setPageTitle(title))
-})
-
-About = withRedux(makeStore, store => store, mapDispatchToProps)(About)
+About = withRedux(makeStore, store => store)(About)
 
 export default About

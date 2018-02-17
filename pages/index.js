@@ -5,6 +5,7 @@ import cx from 'classnames'
 
 import makeStore from '@components/store'
 import Layout from '@components/layout'
+import MenuBar from '@components/menuBar'
 import { appActions } from '@components/app/reducer'
 
 import register from './sw.js'
@@ -12,36 +13,15 @@ import s from './index.scss'
 
 register(global)
 
-class Home extends Component {
-  constructor ({ setPageTitle }) {
-    super()
-    this.setPageTitle = setPageTitle
-  }
+export let Home = () => (
+  <Layout pageTitle='Home'>
+    <Head>
+      <title>Home | Tavern</title>
+    </Head>
+    <h1 className={cx(s.pageTitle)}>Home</h1>
+  </Layout>
+)
 
-  componentDidMount () {
-    this.setPageTitle('Home')
-  }
-
-  componentWillUnmount () {
-    this.setPageTitle('')
-  }
-
-  render () {
-    return (
-      <Layout>
-        <Head>
-          <title>Home | Tavern</title>
-        </Head>
-        <h1 className={cx(s.pageTitle)}>Home</h1>
-      </Layout>
-    )
-  }
-}
-
-const mapDispatchToProps = (dispatch) => ({
-  setPageTitle: (title) => dispatch(appActions.setPageTitle(title))
-})
-
-Home = withRedux(makeStore, store => store, mapDispatchToProps)(Home)
+Home = withRedux(makeStore, store => store)(Home)
 
 export default Home

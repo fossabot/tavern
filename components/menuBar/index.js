@@ -1,4 +1,5 @@
 import { connect } from 'react-redux'
+import Portal from 'material-ui/Portal'
 
 import AppBar from 'material-ui/AppBar'
 import IconButton from 'material-ui/IconButton'
@@ -9,10 +10,9 @@ import MenuIcon from 'material-ui-icons/Menu'
 import { appActions } from '@components/app/reducer'
 
 export const MenuBar = ({
-  pageTitle,
+  title,
   toggleDrawer
-}) => (
-  <AppBar position='static' color='primary'>
+}) => <AppBar position='static' color='primary'>
     <Toolbar disableGutters={true}>
       <IconButton
         color='contrast'
@@ -22,16 +22,13 @@ export const MenuBar = ({
         <MenuIcon />
       </IconButton>
       <Typography type='title' color='inherit'>
-        {pageTitle}
+        {title}
       </Typography>
     </Toolbar>
   </AppBar>
-)
-
-const mapStateToProps = ({ app: { pageTitle }}) => ({ pageTitle })
 
 const mapDispatchToProps = dispatch => ({
   toggleDrawer: show => dispatch(appActions.toggleDrawer(show))
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(MenuBar)
+export default connect(null, mapDispatchToProps)(MenuBar)

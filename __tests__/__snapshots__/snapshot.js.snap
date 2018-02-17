@@ -1,0 +1,64 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`With Snapshot Testing App shows "Hello world!" 1`] = `
+<div
+  id="__layoutRoot"
+>
+  <header
+    className="MuiPaper-root-8 MuiPaper-shadow4-14 MuiAppBar-root-1 MuiAppBar-positionStatic-4 MuiAppBar-colorPrimary-6"
+  >
+    <div
+      className="MuiToolbar-root-35"
+    >
+      <button
+        aria-label="Menu"
+        className="MuiButtonBase-root-46 MuiIconButton-root-37 MuiIconButton-colorContrast-39"
+        disabled={false}
+        onBlur={[Function]}
+        onClick={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onKeyUp={[Function]}
+        onMouseDown={[Function]}
+        onMouseLeave={[Function]}
+        onMouseUp={[Function]}
+        onTouchEnd={[Function]}
+        onTouchMove={[Function]}
+        onTouchStart={[Function]}
+        role={undefined}
+        tabIndex={0}
+        type="button"
+      >
+        <span
+          className="MuiIconButton-label-43"
+        >
+          <svg
+            aria-hidden="true"
+            className="MuiSvgIcon-root-48 MuiIconButton-icon-44"
+            color={undefined}
+            focusable="false"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"
+            />
+          </svg>
+        </span>
+        <span
+          className="MuiTouchRipple-root-55"
+        />
+      </button>
+      <h2
+        className="MuiTypography-root-62 MuiTypography-title-68 MuiTypography-colorInherit-81"
+      >
+        Home
+      </h2>
+    </div>
+  </header>
+  <h1
+    className=""
+  >
+    Home
+  </h1>
+</div>
+`;
