@@ -2,6 +2,8 @@
 
 > This is the repository for the Tavern RPG platform - Web client
 
+[![Deploy to now](https://deploy.now.sh/static/button.svg)](https://deploy.now.sh/?repo=https://github.com/TavernLab/tavern-web)
+
 [![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FTavernLab%2Ftavern-web.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2FTavernLab%2Ftavern-web?ref=badge_shield)
 
 ## Development
