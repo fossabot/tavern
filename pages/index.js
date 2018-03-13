@@ -3,10 +3,10 @@ import withRedux from 'next-redux-wrapper'
 import Head from 'next/head'
 import cx from 'classnames'
 
-import makeStore from '@components/store'
+import makeStore from '@reducers/store'
 import Layout from '@components/layout'
 import MenuBar from '@components/menuBar'
-import { appActions } from '@components/app/reducer'
+import { appActions } from '@reducers/app'
 
 import register from './sw.js'
 import s from './index.scss'

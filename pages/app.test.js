@@ -1,8 +1,7 @@
 import React from 'react'
 import { mount } from 'enzyme'
 
-import App from '../pages'
-import About from '../pages/about'
+import App from './'
 
 describe('Rendering should work', () => {
   it('App page title is "Home"', async () => {
@@ -10,12 +9,5 @@ describe('Rendering should work', () => {
     const toolBarTitleSel = '#toolbarTitle'
 
     expect(app.find(toolBarTitleSel).text()).toEqual('Home')
-  })
-
-  it('About page title is "About"', async () => {
-    const app = await mount(<About />)
-    const toolBarTitleSel = '#toolbarTitle'
-
-    expect(app.find(toolBarTitleSel).text()).toEqual('About')
   })
 })

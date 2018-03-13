@@ -1,8 +1,8 @@
 import { createStore, combineReducers } from 'redux'
 
-import app from './app/reducer'
+import app from './app'
 
-export * from './app/reducer'
+export * from './app'
 
 export const rootReducer = {
   app

@@ -5,24 +5,28 @@ import AppBar from 'material-ui/AppBar'
 import IconButton from 'material-ui/IconButton'
 import Toolbar from 'material-ui/Toolbar'
 import Typography from 'material-ui/Typography'
+
 import MenuIcon from 'material-ui-icons/Menu'
 
-import { appActions } from '@components/app/reducer'
+import LoginButton from '@components/loginButton'
+import { appActions } from '@reducers/store'
+import s from './menuBar.scss'
 
 export const MenuBar = ({
   title,
   toggleDrawer
 }) => <AppBar position='static' color='primary'>
-    <Toolbar disableGutters={true}>
+    <Toolbar title={title} className={s.toolbar}>
       <IconButton
         aria-label='Menu'
         onClick={() => toggleDrawer()}
       >
         <MenuIcon />
       </IconButton>
-      <Typography type='title' color='inherit'>
-        <span id="toolbarTitle">{title}</span>
+      <Typography style={{ flex: 1 }} title={title} variant='title' color='inherit'>
+        <span id='toolbarTitle' className={s.toolbarTitle}>{title}</span>
       </Typography>
+      <LoginButton />
     </Toolbar>
   </AppBar>
 

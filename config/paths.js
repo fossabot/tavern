@@ -46,6 +46,7 @@ module.exports = {
   appHtml: resolveApp('public/index.html'),
   appPackageJson: resolveApp('package.json'),
   appComponents: resolveApp('components'),
+  appReducers: resolveApp('reducers'),
   appPages: resolveApp('pages'),
   yarnLockFile: resolveApp('yarn.lock'),
   testsSetup: resolveApp('src/setupTests.js'),
