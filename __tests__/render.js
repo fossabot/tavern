@@ -7,13 +7,15 @@ import About from '../pages/about'
 describe('Rendering should work', () => {
   it('App page title is "Home"', async () => {
     const app = await mount(<App />)
+    const toolBarTitleSel = '#toolbarTitle'
 
-    expect(app.find('h2').text()).toEqual('Home')
+    expect(app.find(toolBarTitleSel).text()).toEqual('Home')
   })
 
   it('About page title is "About"', async () => {
     const app = await mount(<About />)
+    const toolBarTitleSel = '#toolbarTitle'
 
-    expect(app.find('h2').text()).toEqual('About')
+    expect(app.find(toolBarTitleSel).text()).toEqual('About')
   })
 })

@@ -5,14 +5,14 @@ exports[`With Snapshot Testing App shows "Hello world!" 1`] = `
   id="__layoutRoot"
 >
   <header
-    className="MuiPaper-root-8 MuiPaper-shadow4-14 MuiAppBar-root-1 MuiAppBar-positionStatic-4 MuiAppBar-colorPrimary-6"
+    className="MuiPaper-root-9 MuiPaper-elevation4-15 MuiAppBar-root-1 MuiAppBar-positionStatic-5 MuiAppBar-colorPrimary-7"
   >
     <div
-      className="MuiToolbar-root-35"
+      className="MuiToolbar-root-36"
     >
       <button
         aria-label="Menu"
-        className="MuiButtonBase-root-46 MuiIconButton-root-37 MuiIconButton-colorContrast-39"
+        className="MuiButtonBase-root-44 MuiIconButton-root-38"
         disabled={false}
         onBlur={[Function]}
         onClick={[Function]}
@@ -25,8 +25,7 @@ exports[`With Snapshot Testing App shows "Hello world!" 1`] = `
         onTouchEnd={[Function]}
         onTouchMove={[Function]}
         onTouchStart={[Function]}
-        role={undefined}
-        tabIndex={0}
+        tabIndex="0"
         type="button"
       >
         <span
@@ -34,7 +33,7 @@ exports[`With Snapshot Testing App shows "Hello world!" 1`] = `
         >
           <svg
             aria-hidden="true"
-            className="MuiSvgIcon-root-48 MuiIconButton-icon-44"
+            className="MuiSvgIcon-root-47"
             color={undefined}
             focusable="false"
             viewBox="0 0 24 24"
@@ -45,14 +44,19 @@ exports[`With Snapshot Testing App shows "Hello world!" 1`] = `
           </svg>
         </span>
         <span
-          className="MuiTouchRipple-root-55"
+          className="MuiTouchRipple-root-53"
         />
       </button>
-      <h2
-        className="MuiTypography-root-62 MuiTypography-title-68 MuiTypography-colorInherit-81"
+      <p
+        className="MuiTypography-root-60 MuiTypography-body1-69 MuiTypography-colorInherit-79"
+        type="title"
       >
-        Home
-      </h2>
+        <span
+          id="toolbarTitle"
+        >
+          Home
+        </span>
+      </p>
     </div>
   </header>
   <h1

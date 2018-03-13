@@ -6,13 +6,14 @@
   "author": "Wésley Queiroz <wesley.coder@gmail.com> (https://github.com/wescoder)",
   "license": "MIT",
   "scripts": {
-    "open": "google-chrome --user-data-dir=.tmp-chrome --remote-debugging-port=9222 http://localhost:3000",
-    "test": "NODE_ENV=test node config/test.js --env=jsdom",
-    "analyze": "cross-env ANALYZE=1 next build",
-    "dev": "run-p serve open",
-    "serve": "next",
+    "dev": "run-p serve opn",
+    "serve": "next -p 3001",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "opn": "google-chrome --user-data-dir=.tmp-chrome --remote-debugging-port=9222 http://localhost:3001",
+    "analyze": "cross-env ANALYZE=1 next build",
+    "testing": "NODE_ENV=test jest --watchAll",
+    "test": "NODE_ENV=test jest"
   },
   "now": {
     "alias": "tavern.now.sh",
@@ -34,8 +35,8 @@
       "<rootDir>/pages/**/__tests__/**/*.{js,jsx,mjs}",
       "<rootDir>/pages/**/?(*.)(spec|test).{js,jsx,mjs}"
     ],
-    "testEnvironment": "node",
-    "testURL": "http://localhost",
+    "testEnvironment": "jsdom",
+    "testURL": "http://localhost:3001",
     "transform": {
       "^.+\\.(js|jsx|mjs)$": "<rootDir>/node_modules/babel-jest",
       "^.+\\.css$": "<rootDir>/config/jest/cssTransform.js",
@@ -95,7 +96,6 @@
     "enzyme-adapter-react-16": "^1.1.1",
     "eslint": "^4.18.0",
     "hygen": "^1.4.8",
-    "jest": "20.0.4",
     "node-sass": "^4.7.2",
     "npm-run-all": "^4.1.2",
     "object-assign": "^4.1.1",

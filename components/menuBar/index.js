@@ -15,14 +15,13 @@ export const MenuBar = ({
 }) => <AppBar position='static' color='primary'>
     <Toolbar disableGutters={true}>
       <IconButton
-        color='contrast'
         aria-label='Menu'
         onClick={() => toggleDrawer()}
       >
         <MenuIcon />
       </IconButton>
       <Typography type='title' color='inherit'>
-        {title}
+        <span id="toolbarTitle">{title}</span>
       </Typography>
     </Toolbar>
   </AppBar>
