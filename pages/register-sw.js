@@ -8,12 +8,14 @@
 // To learn more about the benefits of this model, read https://goo.gl/KwvDNy.
 // This link also includes instructions on opting out of this behavior.
 
+const { NODE_ENV, PUBLIC_URL } = process.env
+
 export default function register({ location, navigator, addEventListener } = {}) {
   if (location) {
-    if (process.env.NODE_ENV === 'production' && 'serviceWorker' in navigator) {
+    if (NODE_ENV === 'production' && 'serviceWorker' in navigator) {
       // The URL constructor is available in all browsers that support SW.
-      const publicUrl = new URL(process.env.PUBLIC_URL, location)
-      if (publicUrl.origin !== location.origin) {
+      const publicUrl = new URL(PUBLIC_URL, location)
+      if (!/^https/.test(location.origin) || publicUrl.origin !== location.origin) {
         // Our service worker won't work if PUBLIC_URL is on a different origin
         // from what our page is served on. This might happen if a CDN is used to
         // serve assets; see https://github.com/facebookincubator/create-react-app/issues/2374
@@ -31,7 +33,7 @@ export default function register({ location, navigator, addEventListener } = {})
       )
 
       addEventListener('load', () => {
-        const swUrl = `${process.env.PUBLIC_URL}/service-worker.js`
+        const swUrl = `${PUBLIC_URL}/service-worker.js`
 
         if (isLocalhost) {
           // This is running on localhost. Lets check if a service worker still exists or not.
@@ -40,10 +42,7 @@ export default function register({ location, navigator, addEventListener } = {})
           // Add some additional logging to localhost, pointing developers to the
           // service worker/PWA documentation.
           navigator.serviceWorker.ready.then(() => {
-            console.log(
-              'This web app is being served cache-first by a service ' +
-                'worker. To learn more, visit https://goo.gl/SC7cgQ'
-            )
+            console.log('This web app is being served cache-first by a service worker. To learn more, visit https://goo.gl/SC7cgQ')
           })
         } else {
           // Is not local host. Just register service worker
@@ -54,7 +53,9 @@ export default function register({ location, navigator, addEventListener } = {})
 
     function registerValidSW(swUrl) {
       navigator.serviceWorker
-        .register(swUrl)
+        .register(swUrl, {
+          scope: '/'
+        })
         .then(registration => {
           registration.onupdatefound = () => {
             const installingWorker = registration.installing
@@ -82,6 +83,7 @@ export default function register({ location, navigator, addEventListener } = {})
     }
 
     function checkValidServiceWorker(swUrl) {
+      console.log('checkValidServiceWorker:', swUrl)
       // Check if the service worker can be found. If it can't reload the page.
       fetch(swUrl)
         .then(response => {
@@ -102,9 +104,7 @@ export default function register({ location, navigator, addEventListener } = {})
           }
         })
         .catch(() => {
-          console.log(
-            'No internet connection found. App is running in offline mode.'
-          )
+          console.log('No internet connection found. App is running in offline mode.')
         })
     }
   }

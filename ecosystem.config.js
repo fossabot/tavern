@@ -4,8 +4,7 @@ module.exports = {
       name: 'tavern-web-dev',
       script: './node_modules/next/dist/bin/next',
       env: {
-        NODE_ENV: 'development',
-        BABEL_DISABLE_CACHE: 1
+        NODE_ENV: 'development'
       },
       node_args: [
         '--inspect=9230'

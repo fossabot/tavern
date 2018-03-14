@@ -8,7 +8,7 @@ import Layout from '@components/layout'
 import MenuBar from '@components/menuBar'
 import { appActions } from '@reducers/app'
 
-import register from './sw.js'
+import register from './register-sw.js'
 import s from './index.scss'
 
 register(global)

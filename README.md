@@ -15,6 +15,12 @@ While developing React `[HMR]` console messages can get in the way. Here is a sn
 /^(?!.*\[HMR\])/
 ```
 
+And for the network tab this may be useful:
+```regex
+/_next/on-demand-entries-ping?
+/^(?!.*\/\_next\/on\-demand\-entries\-ping\?|\/\_next\/webpack\-hmr)/
+```
+
 ## License
 
 > This project is licensed under the [MIT](https://opensource.org/licenses/MIT) license

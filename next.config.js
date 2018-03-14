@@ -1,12 +1,13 @@
 const withCss = require('@zeit/next-css')
 const withSass = require('@zeit/next-sass')
+const withOffline = require('next-offline')
+const { DefinePlugin } = require('webpack')
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer')
 const { ANALYZE } = process.env
 const paths = require('./config/paths')
+const { raw: ENV } = require('./config/env')
 
-require('./config/env');
-
-module.exports = withCss(withSass({
+const customConfig = {
   cssModules: true,
   webpack (config, { buildId, dev, isServer, defaultLoaders }) {
     if (ANALYZE) {
@@ -16,6 +17,10 @@ module.exports = withCss(withSass({
         openAnalyzer: true
       }))
     }
+
+    config.plugins.push(new DefinePlugin({
+      'process.env': JSON.stringify(ENV)
+    }))
 
     if(!dev) {
       config.devtool = 'source-map'
@@ -27,4 +32,11 @@ module.exports = withCss(withSass({
 
     return config // Important: return the modified config
   }
-}))
+}
+
+module.exports = withOffline({
+  dontAutoRegisterSw: true,
+  ...withCss(
+    withSass(customConfig)
+  )
+})
