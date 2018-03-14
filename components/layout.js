@@ -39,7 +39,8 @@ const theme = createMuiTheme({
 const Layout = ({ pageTitle, children }) => (
   <JssProvider registry={sheetsRegistry} generateClassName={generateClassName}>
     <MuiThemeProvider theme={theme}>
-      <div id="__layoutRoot">
+      <style id='jss-server-side'>{sheetsRegistry.toString().replace(/\s\s+|\n/g, '')}</style>
+      <div id='__layoutRoot'>
         <MenuBar title={pageTitle} />
         <MenuDrawer />
         {children}
