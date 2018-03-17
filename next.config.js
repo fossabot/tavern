@@ -31,15 +31,18 @@ const webpack = (config, { buildId, dev, isServer, defaultLoaders }) => {
   return config // Important: return the modified config
 }
 
-let config = withSass({
-  cssModules: true,
-  webpack
+let config = withCss({
+  webpack,
+  cssModules: true
 })
-config = withCss(config)
+config = withSass({
+  ...config,
+  cssModules: true
+})
 
 config = withOffline({
-  dontAutoRegisterSw: true,
-  ...config
+  ...config,
+  dontAutoRegisterSw: true
 })
 
 module.exports = config
