@@ -7,7 +7,7 @@ class AppDocument extends Document {
         <Head>
           <title>Narrative RPG online platform | Tavern</title>
           <meta name='viewport' content='initial-scale=1.0, width=device-width' />
-          <link rel='stylesheet' href='/static/reset.css'/>
+          <link rel='stylesheet' href='/static/reset.min.css'/>
           <link rel='stylesheet' href='/_next/static/style.css'/>
         </Head>
         <body>

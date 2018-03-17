@@ -17,7 +17,6 @@ While developing React `[HMR]` console messages can get in the way. Here is a sn
 
 And for the network tab this may be useful:
 ```regex
-/_next/on-demand-entries-ping?
 /^(?!.*\/\_next\/on\-demand\-entries\-ping\?|\/\_next\/webpack\-hmr)/
 ```
 
