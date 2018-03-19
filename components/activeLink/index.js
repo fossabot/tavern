@@ -1,12 +1,12 @@
+import PropTypes from 'prop-types'
 import Router, { withRouter } from 'next/router'
 
 export const ActiveLink = ({
   href,
   router,
-  prefetch,
-  onNavigate,
+  onNavigate = () => {},
   delay,
-  render: LinkContent
+  render: LinkContent = null
 }) => {
   const isActive = router.pathname === href
   if (!isActive) {
@@ -16,7 +16,7 @@ export const ActiveLink = ({
     <div
       onClick={async () => {
         if (!isActive) {
-          onNavigate && await onNavigate()
+          await onNavigate()
           await new Promise(resolve => setTimeout(resolve, delay - 100))
           router.push(href)
         }
@@ -25,6 +25,19 @@ export const ActiveLink = ({
       <LinkContent active={router.pathname === href} />
     </div>
   )
+}
+
+ActiveLink.propTypes = {
+  href: PropTypes.string.isRequired,
+  router: PropTypes.any.isRequired,
+  onNavigate: PropTypes.func,
+  delay: PropTypes.number.isRequired,
+  render: PropTypes.node
+}
+
+ActiveLink.defaultProps = {
+  onNavigate: () => {},
+  render: null
 }
 
 export default withRouter(ActiveLink)

@@ -27,3 +27,5 @@ yarn-error.log*
 .next
 stats.json
 package-lock.json
+integration/screenshots/narrow/
+integration/screenshots/wide/

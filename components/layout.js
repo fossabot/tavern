@@ -1,4 +1,4 @@
-import { Children, cloneElement } from 'react'
+import PropTypes from 'prop-types'
 import { SheetsRegistry } from 'react-jss/lib/jss'
 import JssProvider from 'react-jss/lib/JssProvider'
 import { minify } from 'csso'
@@ -26,7 +26,7 @@ const theme = createMuiTheme({
   userAgent: 'all'
 })
 
-const Layout = ({ pageTitle, children }) => (
+const Layout = ({ pageTitle = '', children = null }) => (
   <JssProvider registry={sheetsRegistry} generateClassName={generateClassName}>
     <MuiThemeProvider theme={theme}>
       <Head>
@@ -40,5 +40,15 @@ const Layout = ({ pageTitle, children }) => (
     </MuiThemeProvider>
   </JssProvider>
 )
+
+Layout.propTypes = {
+  pageTitle: PropTypes.string,
+  children: PropTypes.node
+}
+
+Layout.defaultProps = {
+  pageTitle: '',
+  children: null
+}
 
 export default Layout

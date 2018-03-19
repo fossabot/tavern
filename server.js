@@ -2,11 +2,9 @@ const { createServer } = require('http')
 const { resolve } = require('path')
 const { parse } = require('url')
 const next = require('next')
-const { publicUrl } = require('./config/paths')
 const app = next()
 const handle = app.getRequestHandler()
 const env = require('./config/env')
-const fs = require('fs')
 
 const { APP_PORT, PUBLIC_URL, NODE_ENV } = env.raw
 const isDev = NODE_ENV !== 'production'
@@ -26,7 +24,7 @@ app.prepare()
         handle(req, res, parsedUrl)
       }
     })
-    .listen(APP_PORT, () => {
-      console.log(`> Ready on ${serverDomain}`)
-    })
+      .listen(APP_PORT, () => {
+        console.log(`> Ready on ${serverDomain}`)
+      })
   })

@@ -1,12 +1,9 @@
-import { Component } from 'react'
-import withRedux from 'next-redux-wrapper'
 import Head from 'next/head'
+import withRedux from 'next-redux-wrapper'
 import cx from 'classnames'
 
-import makeStore from '@reducers/store'
 import Layout from '@components/layout'
-import MenuBar from '@components/menuBar'
-import { appActions } from '@reducers/app'
+import makeStore from '@reducers/store'
 
 import register from './register-sw.js'
 import s from './index.scss'

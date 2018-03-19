@@ -7,7 +7,7 @@ const { ANALYZE } = process.env
 const paths = require('./config/paths')
 const { raw: ENV } = require('./config/env')
 
-const webpack = (config, { buildId, dev, isServer, defaultLoaders }) => {
+const webpack = (config, { dev/* , buildId, isServer, defaultLoaders */ }) => {
   if (ANALYZE) {
     config.plugins.push(new BundleAnalyzerPlugin({
       analyzerMode: 'server',
@@ -20,7 +20,7 @@ const webpack = (config, { buildId, dev, isServer, defaultLoaders }) => {
     'process.env': JSON.stringify(ENV)
   }))
 
-  if(!dev) {
+  if (!dev) {
     config.devtool = 'source-map'
   }
 

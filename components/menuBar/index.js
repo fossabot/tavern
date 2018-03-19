@@ -1,5 +1,5 @@
+import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-import Portal from 'material-ui/Portal'
 
 import AppBar from 'material-ui/AppBar'
 import IconButton from 'material-ui/IconButton'
@@ -13,9 +13,10 @@ import { appActions } from '@reducers/store'
 import s from './menuBar.scss'
 
 export const MenuBar = ({
-  title,
+  title = '',
   toggleDrawer
-}) => <AppBar position='static' color='primary'>
+}) => (
+  <AppBar position='static' color='primary'>
     <Toolbar title={title} className={s.toolbar}>
       <IconButton
         aria-label='Menu'
@@ -29,6 +30,16 @@ export const MenuBar = ({
       <LoginButton />
     </Toolbar>
   </AppBar>
+)
+
+MenuBar.propTypes = {
+  title: PropTypes.string,
+  toggleDrawer: PropTypes.func.isRequired
+}
+
+MenuBar.defaultProps = {
+  title: ''
+}
 
 const mapDispatchToProps = dispatch => ({
   toggleDrawer: show => dispatch(appActions.toggleDrawer(show))

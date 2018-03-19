@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import cx from 'classnames'
 
@@ -23,7 +24,7 @@ const pages = [
 ]
 
 export const MenuDrawer = ({
-  showDrawer,
+  showDrawer = false,
   toggleDrawer
 }) => (
   <Drawer
@@ -44,7 +45,7 @@ export const MenuDrawer = ({
           delay={drawerDelay}
           onNavigate={() => toggleDrawer(false)}
           render={({ active }) => (
-            <ListItem  className={cx(s.item, {[s.itemActive]: active})}>
+            <ListItem className={cx(s.item, { [s.itemActive]: active })}>
               <Icon color='primary' className={cx(s.itemIcon)} />
               <Typography color='primary'>{title}</Typography>
             </ListItem>
@@ -55,6 +56,15 @@ export const MenuDrawer = ({
   </Drawer>
 )
 
+MenuDrawer.propTypes = {
+  showDrawer: PropTypes.bool,
+  toggleDrawer: PropTypes.func.isRequired
+}
+
+MenuDrawer.defaultProps = {
+  showDrawer: false
+}
+
 const mapStateToProps = ({ app }) => app
 
 const mapDispatchToProps = dispatch => ({
@@ -62,4 +72,3 @@ const mapDispatchToProps = dispatch => ({
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(MenuDrawer)
-0

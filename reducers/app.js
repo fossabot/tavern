@@ -6,7 +6,7 @@ const actions = {
 
 export const appActions = {
   ...actions,
-  toggleDrawer: (show) => ({
+  toggleDrawer: show => ({
     type: actions.TOGGLE_DRAWER,
     show
   })
