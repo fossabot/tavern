@@ -19,6 +19,7 @@ export const MenuBar = ({
   <AppBar position='static' color='primary'>
     <Toolbar title={title} className={s.toolbar}>
       <IconButton
+        color='inherit'
         aria-label='Menu'
         onClick={() => toggleDrawer()}
       >

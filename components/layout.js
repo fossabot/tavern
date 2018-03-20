@@ -5,7 +5,6 @@ import { minify } from 'csso'
 import Head from 'next/head'
 
 import { MuiThemeProvider, createMuiTheme, createGenerateClassName } from 'material-ui/styles'
-import { teal, lime, orange } from 'material-ui/colors'
 
 import MenuBar from '@components/menuBar'
 import MenuDrawer from '@components/menuDrawer'
@@ -16,9 +15,10 @@ const generateClassName = createGenerateClassName()
 const theme = createMuiTheme({
   palette: {
     type: 'light',
-    primary: { light: teal[700], main: teal[800], dark: teal[900] },
-    secondary: { light: lime[700], main: lime[800], dark: lime[900] },
-    error: { light: orange[700], main: orange[800], dark: orange[900] },
+    primary: { light: '#4f5a42', main: '#283618', dark: '#212d14' },
+    secondary: { light: '#9a2e57', main: '#840032', dark: '#6d0029' },
+    action: { light: '#fe7c2e', main: '#fe5f00', dark: '#d04e00' },
+    error: { light: '#eb465a', main: '#e71d36', dark: '#be182d' },
     contrastThreshold: 3,
     tonalOffset: 0.2
   }

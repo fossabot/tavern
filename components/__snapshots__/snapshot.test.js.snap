@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`With Snapshot Testing App shows "Hello world!" 1`] = `
+exports[`With Snapshot Testing App match snapshot 1`] = `
 <div
   id="__layoutRoot"
 >
@@ -13,7 +13,7 @@ exports[`With Snapshot Testing App shows "Hello world!" 1`] = `
     >
       <button
         aria-label="Menu"
-        className="MuiButtonBase-root-44 MuiIconButton-root-38"
+        className="MuiButtonBase-root-44 MuiIconButton-root-38 MuiIconButton-colorInherit-39"
         disabled={false}
         onBlur={[Function]}
         onClick={[Function]}
@@ -64,31 +64,34 @@ exports[`With Snapshot Testing App shows "Hello world!" 1`] = `
           Home
         </span>
       </h2>
-      <button
-        className="MuiButtonBase-root-44 MuiButton-root-84 MuiButton-colorInherit-88"
-        disabled={false}
-        onBlur={[Function]}
-        onFocus={[Function]}
-        onKeyDown={[Function]}
-        onKeyUp={[Function]}
-        onMouseDown={[Function]}
-        onMouseLeave={[Function]}
-        onMouseUp={[Function]}
-        onTouchEnd={[Function]}
-        onTouchMove={[Function]}
-        onTouchStart={[Function]}
-        tabIndex="0"
-        type="button"
-      >
-        <span
-          className="MuiButton-label-85"
+      <div>
+        <button
+          className="MuiButtonBase-root-44 MuiButton-root-84 MuiButton-colorInherit-88"
+          disabled={false}
+          onBlur={[Function]}
+          onClick={[Function]}
+          onFocus={[Function]}
+          onKeyDown={[Function]}
+          onKeyUp={[Function]}
+          onMouseDown={[Function]}
+          onMouseLeave={[Function]}
+          onMouseUp={[Function]}
+          onTouchEnd={[Function]}
+          onTouchMove={[Function]}
+          onTouchStart={[Function]}
+          tabIndex="0"
+          type="button"
         >
-          Login
-        </span>
-        <span
-          className="MuiTouchRipple-root-53"
-        />
-      </button>
+          <span
+            className="MuiButton-label-85"
+          >
+            Sign In
+          </span>
+          <span
+            className="MuiTouchRipple-root-53"
+          />
+        </button>
+      </div>
     </div>
   </header>
   <h1

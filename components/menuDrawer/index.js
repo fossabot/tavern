@@ -33,7 +33,7 @@ export const MenuDrawer = ({
     transitionDuration={drawerDelay}
   >
     <IconButton onClick={() => toggleDrawer(false)}>
-      <ChevronLeftIcon />
+      <ChevronLeftIcon color='primary' />
     </IconButton>
     <Divider />
     <List>
@@ -44,10 +44,14 @@ export const MenuDrawer = ({
           href={path}
           delay={drawerDelay}
           onNavigate={() => toggleDrawer(false)}
-          render={({ active }) => (
-            <ListItem className={cx(s.item, { [s.itemActive]: active })}>
-              <Icon color='primary' className={cx(s.itemIcon)} />
-              <Typography color='primary'>{title}</Typography>
+          render={({ isActive, isLoading }) => (
+            <ListItem className={cx(s.item, { [s.itemActive]: isActive })}>
+              <Icon color={isActive ? 'disabled' : 'primary'} className={cx(s.itemIcon)} />
+              <Typography>{title}</Typography>
+              {isLoading
+                ? <Icon color='primary' className='' />
+                : null
+              }
             </ListItem>
           )}
         />
