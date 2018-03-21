@@ -8,6 +8,7 @@ import { MuiThemeProvider, createMuiTheme, createGenerateClassName } from 'mater
 
 import MenuBar from '@components/menuBar'
 import MenuDrawer from '@components/menuDrawer'
+import resetCss from './reset.css'
 
 const sheetsRegistry = new SheetsRegistry()
 const generateClassName = createGenerateClassName()
@@ -30,7 +31,7 @@ const Layout = ({ pageTitle = '', children = null }) => (
   <JssProvider registry={sheetsRegistry} generateClassName={generateClassName}>
     <MuiThemeProvider theme={theme}>
       <Head>
-        <style id='jss-server-side'>{minify(sheetsRegistry.toString()).css}</style>
+        <style id='jss-server-side'>{resetCss}{minify(sheetsRegistry.toString()).css}</style>
       </Head>
       <div id='__layoutRoot'>
         <MenuBar title={pageTitle} />

@@ -23,10 +23,10 @@ export const LoginButton = ({
             <DialogTitle>Sign In to Tavern</DialogTitle>
             <List>
               <ListItem>
-                <ListItemText primary='Tavern account' secondary='fdsa' />
+                <ListItemText primary='Tavern account' />
               </ListItem>
               <ListItem>
-                <ListItemText primary='Google' secondary='fdsa' />
+                <ListItemText primary='Google' />
               </ListItem>
             </List>
           </Dialog>
