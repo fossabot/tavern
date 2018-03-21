@@ -10,6 +10,7 @@ class AppDocument extends Document {
           <meta name='theme-color' content='#283618' />
           <link rel='manifest' href='/static/manifest.json' />
           <link rel='stylesheet' href='/_next/static/style.css' />
+          <link rel='icon' href='/static/logo/tavern-64.png' type='image/png' />
         </Head>
         <body>
           <Main />
