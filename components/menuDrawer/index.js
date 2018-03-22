@@ -1,21 +1,18 @@
 import PropTypes from 'prop-types'
-import cx from 'classnames'
 import { connect } from 'react-redux'
 
 import Divider from 'material-ui/Divider'
 import Drawer from 'material-ui/Drawer'
 import IconButton from 'material-ui/IconButton'
-import Typography from 'material-ui/Typography'
-import List, { ListItem } from 'material-ui/List'
+import List from 'material-ui/List'
 
 import ChevronLeftIcon from 'material-ui-icons/ChevronLeft'
 import HomeIcon from 'material-ui-icons/Home'
 import InfoIcon from 'material-ui-icons/Info'
-import { CircularProgress } from 'material-ui/Progress'
 
 import ActiveLink from '@components/activeLink'
+import MenuItem from './menuItem'
 import { appActions } from '@reducers/app'
-import s from './drawer.scss'
 
 const drawerDelay = 300
 
@@ -45,18 +42,12 @@ export const MenuDrawer = ({ showDrawer, toggleDrawer }) => (
             toggleDrawer(!success)
           }}
           render={({ isActive, isLoading }) => (
-            <ListItem className={cx(s.item, { [s.itemActive]: isActive })}>
-              {isLoading
-                ? <CircularProgress
-                  color='inherit'
-                  className={s.itemLoading}
-                  size={26}
-                />
-                : null
-              }
-              <Icon color={isActive ? 'disabled' : 'primary'} className={cx(s.itemIcon)} />
-              <Typography>{title}</Typography>
-            </ListItem>
+            <MenuItem
+              title={title}
+              Icon={Icon}
+              isActive={isActive}
+              isLoading={isLoading}
+            />
           )}
         />
       ))}
