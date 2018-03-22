@@ -12,7 +12,7 @@ import InfoIcon from 'material-ui-icons/Info'
 
 import ActiveLink from '@components/activeLink'
 import MenuItem from './menuItem'
-import { appActions } from '@reducers/app'
+import { drawerActions } from '@reducers/drawer'
 
 const drawerDelay = 300
 
@@ -21,9 +21,9 @@ const pages = [
   { path: '/about', title: 'About', Icon: InfoIcon }
 ]
 
-export const MenuDrawer = ({ showDrawer, toggleDrawer }) => (
+export const MenuDrawer = ({ isOpen, toggleDrawer }) => (
   <Drawer
-    open={showDrawer}
+    open={isOpen}
     onClose={() => toggleDrawer(false)}
     transitionDuration={drawerDelay}
   >
@@ -56,16 +56,16 @@ export const MenuDrawer = ({ showDrawer, toggleDrawer }) => (
 )
 
 MenuDrawer.propTypes = {
-  showDrawer: PropTypes.bool.isRequired,
+  isOpen: PropTypes.bool.isRequired,
   toggleDrawer: PropTypes.func.isRequired
 }
 
 const mapStateToProps = ({
-  app: { showDrawer }
-}) => ({ showDrawer })
+  drawer: { isOpen }
+}) => ({ isOpen })
 
 const mapDispatchToProps = dispatch => ({
-  toggleDrawer: show => dispatch(appActions.toggleDrawer(show))
+  toggleDrawer: willOpen => dispatch(drawerActions.toggleDrawer(willOpen))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(MenuDrawer)

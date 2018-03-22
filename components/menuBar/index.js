@@ -8,8 +8,8 @@ import Typography from 'material-ui/Typography'
 
 import MenuIcon from 'material-ui-icons/Menu'
 
-import LoginButton from '@components/loginButton'
-import { appActions } from '@reducers/store'
+import { LoginButton, LoginDialog } from '@components/login'
+import { drawerActions } from '@reducers/drawer'
 import s from './menuBar.scss'
 
 export const MenuBar = ({
@@ -29,6 +29,7 @@ export const MenuBar = ({
         <span id='toolbarTitle' className={s.toolbarTitle}>{title}</span>
       </Typography>
       <LoginButton />
+      <LoginDialog />
     </Toolbar>
   </AppBar>
 )
@@ -43,7 +44,7 @@ MenuBar.defaultProps = {
 }
 
 const mapDispatchToProps = dispatch => ({
-  toggleDrawer: show => dispatch(appActions.toggleDrawer(show))
+  toggleDrawer: show => dispatch(drawerActions.toggleDrawer(show))
 })
 
 export default connect(null, mapDispatchToProps)(MenuBar)

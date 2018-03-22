@@ -1,11 +1,13 @@
 import { createStore, combineReducers } from 'redux'
 
 import app from './app'
-
-export * from './app'
+import drawer from './drawer'
+import login from './login'
 
 export const rootReducer = {
-  app
+  app,
+  drawer,
+  login
 }
 
 export const makeStore = initialState => createStore(
