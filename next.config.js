@@ -16,6 +16,20 @@ const webpack = (config, { dev/* , buildId, isServer, defaultLoaders */ }) => {
     }))
   }
 
+  config.module.rules.push({
+    test: /\.(jpe?g|png|svg|gif)$/,
+    use: {
+      loader: 'url-loader',
+      options: {
+        limit: 8192,
+        fallback: 'file-loader',
+        publicPath: '/_next/',
+        outputPath: 'static/images/',
+        name: '[name]-[hash].[ext]'
+      }
+    }
+  })
+
   config.plugins.push(new DefinePlugin({
     'process.env': JSON.stringify(ENV)
   }))

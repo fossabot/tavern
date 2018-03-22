@@ -32,6 +32,7 @@ module.exports = {
     'react/jsx-no-bind': ['warn', { allowArrowFunctions: true }],
     'react/no-array-index-key': 'off',
     'react/react-in-jsx-scope': 'off',
-    semi: ['error', 'never']
+    semi: ['error', 'never'],
+    'space-before-function-paren': ['error', 'always']
   }
 }

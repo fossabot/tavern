@@ -1,15 +1,5 @@
 [class*="MuiToolbar-root-"].toolbar {
-  padding-left: 5px;
-}
-@media (min-width: 0px) and (orientation: landscape) {
-  [class*="MuiToolbar-root-"].toolbar {
-    padding-left: 0;
-  }
-}
-@media (min-width: 600px) {
-  [class*="MuiToolbar-root-"].toolbar {
-    padding-left: 0;
-  }
+  padding-left: 0;
 }
 .toolbarTitle {
   padding-left: 10px;

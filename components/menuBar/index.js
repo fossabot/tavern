@@ -16,7 +16,7 @@ export const MenuBar = ({
   title = '',
   toggleDrawer
 }) => (
-  <AppBar position='static' color='primary'>
+  <AppBar position='sticky' color='primary'>
     <Toolbar title={title} className={s.toolbar}>
       <IconButton
         color='inherit'

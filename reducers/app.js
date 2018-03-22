@@ -24,7 +24,9 @@ export const appActions = {
 }
 
 export const defaultState = {
-  showDrawer: false
+  showDrawer: false,
+  showLoginDialog: false,
+  isNavigating: true
 }
 
 export const appReducer = (state = defaultState, action) => {
@@ -33,7 +35,9 @@ export const appReducer = (state = defaultState, action) => {
       const { show } = action
       return ({
         ...state,
-        showDrawer: show ? show : !state.showDrawer
+        showDrawer: (typeof show === 'undefined')
+          ? !state.showDrawer
+          : show
       })
     }
 
@@ -41,7 +45,9 @@ export const appReducer = (state = defaultState, action) => {
       const { show } = action
       return ({
         ...state,
-        showLoginDialog: show ? show : !state.showLoginDialog
+        showLoginDialog: (typeof show === 'undefined')
+          ? !state.showLoginDialog
+          : show
       })
     }
 
@@ -49,7 +55,9 @@ export const appReducer = (state = defaultState, action) => {
       const { navigating, url } = action
       return ({
         ...state,
-        isNavigating: navigating ? navigating : !state.isNavigating,
+        isNavigating: (typeof navigating === 'undefined')
+          ? !state.isNavigating
+          : navigating,
         navigatingTo: url
       })
     }

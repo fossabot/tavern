@@ -10,8 +10,8 @@
 
 const { NODE_ENV, PUBLIC_URL } = process.env
 
-export default function register({ location, navigator, addEventListener } = {}) {
-  function registerValidSW(swUrl) {
+export default function register ({ location, navigator, addEventListener } = {}) {
+  function registerValidSW (swUrl) {
     navigator.serviceWorker
       .register(swUrl, {
         scope: '/'
@@ -42,7 +42,7 @@ export default function register({ location, navigator, addEventListener } = {})
       })
   }
 
-  function checkValidServiceWorker(swUrl) {
+  function checkValidServiceWorker (swUrl) {
     console.log('checkValidServiceWorker:', swUrl)
     // Check if the service worker can be found. If it can't reload the page.
     fetch(swUrl)
@@ -109,7 +109,7 @@ export default function register({ location, navigator, addEventListener } = {})
   }
 }
 
-export function unregister(window) {
+export function unregister (window) {
   const { navigator } = window
   if ('serviceWorker' in navigator) {
     navigator.serviceWorker.ready.then(registration => {

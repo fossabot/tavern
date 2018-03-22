@@ -1,50 +1,28 @@
 {
-  "short_name": "Tavern",
   "name": "Tavern RPG Platform",
-  "start_url": "/",
+  "default_locale": "en",
+  "description": "A complete narrative RPG online platform",
   "display": "standalone",
+  "short_name": "Tavern",
+  "start_url": "/?utm_source=homescreen",
   "theme_color": "#283618",
   "background_color": "#ffffff",
   "icons": [
-    {
-      "src": "/static/logo/tavern-16.png",
-      "sizes": "16x16",
-      "type": "image/png"
-    },
-    {
-      "src": "/static/logo/tavern-32.png",
-      "sizes": "32x32",
-      "type": "image/png"
-    },
-    {
-      "src": "/static/logo/tavern-64.png",
-      "sizes": "64x64",
-      "type": "image/png"
-    },
-    {
-      "src": "/static/logo/tavern-128.png",
-      "sizes": "128x128",
-      "type": "image/png"
-    },
     {
       "src": "/static/logo/tavern-192.png",
       "sizes": "192x192",
       "type": "image/png"
     },
     {
-      "src": "/static/logo/tavern-256.png",
-      "sizes": "256x256",
-      "type": "image/png"
-    },
-    {
-      "src": "/static/logo/tavern-384.png",
-      "sizes": "384x384",
-      "type": "image/png"
-    },
-    {
       "src": "/static/logo/tavern-512.png",
       "sizes": "512x512",
       "type": "image/png"
-    }
+    },
+    {
+      "src": "/static/logo/tavern-1024.png",
+      "sizes": "1024x1024",
+      "type": "image/png",
+      "density": 1.1
+   }
   ]
 }
