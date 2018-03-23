@@ -10,7 +10,7 @@ import s from './index.scss'
 
 register(global)
 
-export let Home = () => (
+export const Home = () => (
   <Layout pageTitle='Home'>
     <Head>
       <title>Home | Tavern</title>
@@ -19,6 +19,4 @@ export let Home = () => (
   </Layout>
 )
 
-Home = withRedux(makeStore, store => store)(Home)
-
-export default Home
+export default withRedux(makeStore, store => store)(Home)

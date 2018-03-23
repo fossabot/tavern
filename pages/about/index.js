@@ -7,7 +7,7 @@ import Layout from '@components/layout'
 
 import s from './index.scss'
 
-export let About = () => (
+export const About = () => (
   <Layout pageTitle='About'>
     <Head>
       <title>About | Tavern</title>
@@ -16,6 +16,4 @@ export let About = () => (
   </Layout>
 )
 
-About = withRedux(makeStore, store => store)(About)
-
-export default About
+export default withRedux(makeStore, store => store)(About)

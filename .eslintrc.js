@@ -15,6 +15,7 @@ module.exports = {
   },
   plugins: ['react'],
   rules: {
+    'capitalized-comments': 'off',
     indent: ['error', 2, {
       SwitchCase: 1
     }],

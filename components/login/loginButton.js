@@ -1,22 +1,23 @@
-import PropTypes from 'prop-types'
-import { connect } from 'react-redux'
+import { WebAuth } from 'auth0-js'
 
 import Button from 'material-ui/Button'
 
-import { loginActions } from '@reducers/login'
+const { PUBLIC_URL } = process.env
 
-export const LoginButton = ({
-  toggleDialog
-}) => (
-  <Button color='inherit' onClick={() => toggleDialog(true)}>Sign In</Button>
-)
-
-LoginButton.propTypes = {
-  toggleDialog: PropTypes.func.isRequired
-}
-
-const mapDispatchToProps = dispatch => ({
-  toggleDialog: show => dispatch(loginActions.toggleDialog(show))
+const auth0 = new WebAuth({
+  domain: 'tavern-lab.auth0.com',
+  clientID: 'D5ikUpvpyPMR02BoWUcaYB0OGeiVVP40',
+  redirectUri: `${PUBLIC_URL}/login_callback`,
+  audience: 'https://tavern-lab.auth0.com/userinfo',
+  responseType: 'token id_token',
+  scope: 'openid'
 })
 
-export default connect(null, mapDispatchToProps)(LoginButton)
+export const LoginButton = () => (
+  <Button
+    color='inherit'
+    onClick={() => auth0.authorize()}
+  >Sign In</Button>
+)
+
+export default LoginButton

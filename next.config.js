@@ -41,6 +41,7 @@ const webpack = (config, { dev/* , buildId, isServer, defaultLoaders */ }) => {
   config.resolve.alias['@components'] = paths.appComponents
   config.resolve.alias['@reducers'] = paths.appReducers
   config.resolve.alias['@pages'] = paths.appPages
+  config.resolve.alias['@root'] = paths.appRoot
 
   return config // Important: return the modified config
 }

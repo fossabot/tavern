@@ -6,9 +6,7 @@ const app = next()
 const handle = app.getRequestHandler()
 const env = require('./config/env')
 
-const { APP_PORT, PUBLIC_URL, NODE_ENV } = env.raw
-const isDev = NODE_ENV !== 'production'
-const serverDomain = isDev ? `${PUBLIC_URL}:${APP_PORT}` : PUBLIC_URL
+const { APP_PORT, PUBLIC_URL, NOW_URL } = env.raw
 
 app.prepare()
   .then(() => {
@@ -24,7 +22,5 @@ app.prepare()
         handle(req, res, parsedUrl)
       }
     })
-      .listen(APP_PORT, () => {
-        console.log(`> Ready on ${serverDomain}`)
-      })
+      .listen(APP_PORT, () => console.log(`> Ready on ${NOW_URL || PUBLIC_URL}`))
   })

@@ -43,7 +43,6 @@ export default function register ({ location, navigator, addEventListener } = {}
   }
 
   function checkValidServiceWorker (swUrl) {
-    console.log('checkValidServiceWorker:', swUrl)
     // Check if the service worker can be found. If it can't reload the page.
     fetch(swUrl)
       .then(response => {
@@ -72,7 +71,7 @@ export default function register ({ location, navigator, addEventListener } = {}
       // The URL constructor is available in all browsers that support SW.
       const publicUrl = new URL(PUBLIC_URL, location)
       if (!/^https/.test(location.origin) || publicUrl.origin !== location.origin) {
-        // Our service worker won't work if PUBLIC_URL is on a different origin
+        // Our service worker won't work if publicUrl is on a different origin
         // from what our page is served on. This might happen if a CDN is used to
         // serve assets; see https://github.com/facebookincubator/create-react-app/issues/2374
         return

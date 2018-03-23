@@ -11,7 +11,7 @@
     "serve": "pm2 start ecosystem.config.js --only tavern-web-dev",
     "build": "next build",
     "start": "NODE_ENV=production node server.js",
-    "opn": "opn http://localhost:3000 -- 'google-chrome' --user-data-dir=.tmp-chrome --remote-debugging-port=9223",
+    "opn": "opn http://tavern.lvh.me:3000 -- 'google-chrome' --user-data-dir=.tmp-chrome --remote-debugging-port=9223",
     "analyze": "cross-env ANALYZE=1 next build",
     "golden": "NODE_ENV=test node integration/screenshots/golden/index.js",
     "integration": "NODE_ENV=test ava --verbose",
@@ -55,7 +55,7 @@
       "<rootDir>/pages/**/?(*.)(spec|test).{js,jsx,mjs}"
     ],
     "testEnvironment": "jsdom",
-    "testURL": "http://localhost:3001",
+    "testURL": "http://localhost:3000",
     "transform": {
       "^.+\\.(js|jsx|mjs)$": "<rootDir>/node_modules/babel-jest",
       "^.+\\.css$": "<rootDir>/config/jest/cssTransform.js",
@@ -87,6 +87,7 @@
   "dependencies": {
     "@zeit/next-css": "^0.1.4",
     "@zeit/next-sass": "^0.1.1",
+    "auth0-js": "^9.3.4",
     "classnames": "^2.2.5",
     "csso": "^3.5.0",
     "dotenv": "4.0.0",

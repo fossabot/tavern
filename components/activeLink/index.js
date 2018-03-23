@@ -7,8 +7,8 @@ import s from './activeLink.scss'
 export const ActiveLink = ({
   href,
   router,
-  isNavigating = false,
-  navigatingTo = '',
+  isNavigating,
+  navigatingTo,
   onNavigate = () => {},
   render: LinkContent = null
 }) => {
@@ -43,15 +43,13 @@ export const ActiveLink = ({
 ActiveLink.propTypes = {
   href: PropTypes.string.isRequired,
   router: PropTypes.any.isRequired,
-  isNavigating: PropTypes.bool,
-  navigatingTo: PropTypes.string,
+  isNavigating: PropTypes.bool.isRequired,
+  navigatingTo: PropTypes.string.isRequired,
   onNavigate: PropTypes.func,
   render: PropTypes.any
 }
 
 ActiveLink.defaultProps = {
-  isNavigating: false,
-  navigatingTo: '',
   onNavigate: () => {},
   render: null
 }
