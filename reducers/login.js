@@ -10,7 +10,8 @@ export const loginActions = {
 }
 
 const defaultState = {
-  isOpen: false
+  isOpen: false,
+  user: null
 }
 
 export const loginReducer = (state = defaultState, action) => {

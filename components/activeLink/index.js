@@ -44,12 +44,13 @@ ActiveLink.propTypes = {
   href: PropTypes.string.isRequired,
   router: PropTypes.any.isRequired,
   isNavigating: PropTypes.bool.isRequired,
-  navigatingTo: PropTypes.string.isRequired,
+  navigatingTo: PropTypes.string,
   onNavigate: PropTypes.func,
   render: PropTypes.any
 }
 
 ActiveLink.defaultProps = {
+  navigatingTo: null,
   onNavigate: () => {},
   render: null
 }

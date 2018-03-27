@@ -17,12 +17,6 @@
       "src": "/static/logo/tavern-512.png",
       "sizes": "512x512",
       "type": "image/png"
-    },
-    {
-      "src": "/static/logo/tavern-1024.png",
-      "sizes": "1024x1024",
-      "type": "image/png",
-      "density": 1.1
    }
   ]
 }
