@@ -1,11 +1,13 @@
-const { createServer } = require('http')
-const { resolve } = require('path')
-const { parse } = require('url')
 const next = require('next')
-const app = next()
-const handle = app.getRequestHandler()
+const { createServer } = require('http')
+const { join } = require('path')
+const { parse } = require('url')
+
 const env = require('./config/env')
 
+const app = next()
+const handle = app.getRequestHandler()
+const staticRoutes = ['/service-worker.js']
 const { APP_PORT, PUBLIC_URL, NOW_URL } = env.raw
 
 app.prepare()
@@ -14,8 +16,8 @@ app.prepare()
       const parsedUrl = parse(req.url, true)
       const { pathname } = parsedUrl
 
-      if (pathname === '/service-worker.js') {
-        const filePath = resolve(__dirname, `.next${pathname}`)
+      if (staticRoutes.includes(pathname)) {
+        const filePath = join(__dirname, '.next', pathname)
 
         app.serveStatic(req, res, filePath)
       } else {

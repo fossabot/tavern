@@ -1,5 +1,6 @@
-import { WebAuth } from 'auth0-js'
 import PropTypes from 'prop-types'
+import getConfig from 'next/config'
+import { WebAuth } from 'auth0-js'
 import { connect } from 'react-redux'
 
 import Button from 'material-ui/Button'
@@ -8,7 +9,7 @@ import List, { ListItem } from 'material-ui/List'
 
 import { loginActions } from '@reducers/login'
 
-const { PUBLIC_URL } = process.env
+const { publicRuntimeConfig: { PUBLIC_URL } = {} } = getConfig() || {}
 
 const auth0 = new WebAuth({
   domain: 'tavern-lab.auth0.com',

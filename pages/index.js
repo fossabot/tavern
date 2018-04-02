@@ -5,7 +5,7 @@ import cx from 'classnames'
 import Layout from '@components/layout'
 import makeStore from '@reducers/store'
 
-import register from './register-sw.js'
+import register from '@components/register-sw.js'
 import s from './index.scss'
 
 register(global)
