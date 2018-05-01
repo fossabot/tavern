@@ -1,14 +1,21 @@
-import PropTypes from 'prop-types'
+import { appActions } from '@reducers/app'
+import { LinearProgress } from 'material-ui/Progress'
 import Router from 'next/router'
+import PropTypes from 'prop-types'
 import { Component } from 'react'
 import { connect } from 'react-redux'
-
-import { LinearProgress } from 'material-ui/Progress'
-
-import { appActions } from '@reducers/app'
 import s from './progressBar.scss'
 
 export class ProgressBar extends Component {
+  static defaultProps = {
+    isNavigating: false
+  }
+
+  static propTypes = {
+    toggleNavigating: PropTypes.func.isRequired,
+    isNavigating: PropTypes.bool
+  }
+
   componentDidMount () {
     const { toggleNavigating } = this.props
     toggleNavigating(null, false)
@@ -29,15 +36,6 @@ export class ProgressBar extends Component {
         : null
     )
   }
-}
-
-ProgressBar.propTypes = {
-  toggleNavigating: PropTypes.func.isRequired,
-  isNavigating: PropTypes.bool
-}
-
-ProgressBar.defaultProps = {
-  isNavigating: false
 }
 
 const mapStateToProps = ({

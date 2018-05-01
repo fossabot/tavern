@@ -1,11 +1,9 @@
-import Head from 'next/head'
-import withRedux from 'next-redux-wrapper'
-import cx from 'classnames'
-
 import Layout from '@components/layout'
-import makeStore from '@reducers/store'
-
 import register from '@components/register-sw.js'
+import makeStore from '@reducers/store'
+import cx from 'classnames'
+import withRedux from 'next-redux-wrapper'
+import Head from 'next/head'
 import s from './index.scss'
 
 register(global)

@@ -1,24 +1,12 @@
-import PropTypes from 'prop-types'
-import getConfig from 'next/config'
-import { WebAuth } from 'auth0-js'
-import { connect } from 'react-redux'
-
+import { loginActions } from '@reducers/login'
 import Button from 'material-ui/Button'
 import Dialog, { DialogTitle } from 'material-ui/Dialog'
 import List, { ListItem } from 'material-ui/List'
-
-import { loginActions } from '@reducers/login'
+import getConfig from 'next/config'
+import PropTypes from 'prop-types'
+import { connect } from 'react-redux'
 
 const { publicRuntimeConfig: { PUBLIC_URL } = {} } = getConfig() || {}
-
-const auth0 = new WebAuth({
-  domain: 'tavern-lab.auth0.com',
-  clientID: 'D5ikUpvpyPMR02BoWUcaYB0OGeiVVP40',
-  redirectUri: `${PUBLIC_URL}/login_callback`,
-  audience: 'https://tavern-lab.auth0.com/userinfo',
-  responseType: 'token id_token',
-  scope: 'openid'
-})
 
 export const LoginDialog = ({
   isOpen,
@@ -71,7 +59,6 @@ const mapDispatchToProps = dispatch => ({
   toggleDialog: show => dispatch(loginActions.toggleDialog(show)),
   googleLoginRequest: () => {
     console.log('googleLoginRequest')
-    auth0.authorize()
   },
   facebookLoginRequest: () => {
     console.log('facebookLoginRequest')

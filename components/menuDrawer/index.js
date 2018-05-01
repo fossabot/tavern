@@ -1,18 +1,15 @@
-import PropTypes from 'prop-types'
-import { connect } from 'react-redux'
-
+import ActiveLink from '@components/activeLink'
+import { drawerActions } from '@reducers/drawer'
+import ChevronLeftIcon from 'material-ui-icons/ChevronLeft'
+import HomeIcon from 'material-ui-icons/Home'
+import InfoIcon from 'material-ui-icons/Info'
 import Divider from 'material-ui/Divider'
 import Drawer from 'material-ui/Drawer'
 import IconButton from 'material-ui/IconButton'
 import List from 'material-ui/List'
-
-import ChevronLeftIcon from 'material-ui-icons/ChevronLeft'
-import HomeIcon from 'material-ui-icons/Home'
-import InfoIcon from 'material-ui-icons/Info'
-
-import ActiveLink from '@components/activeLink'
+import PropTypes from 'prop-types'
+import { connect } from 'react-redux'
 import MenuItem from './menuItem'
-import { drawerActions } from '@reducers/drawer'
 
 const drawerDelay = 300
 

@@ -1,10 +1,8 @@
+import Layout from '@components/layout'
+import makeStore from '@reducers/store'
+import cx from 'classnames'
 import withRedux from 'next-redux-wrapper'
 import Head from 'next/head'
-import cx from 'classnames'
-
-import makeStore from '@reducers/store'
-import Layout from '@components/layout'
-
 import s from './index.scss'
 
 export const About = () => (

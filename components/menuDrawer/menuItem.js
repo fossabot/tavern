@@ -1,10 +1,8 @@
-import PropTypes from 'prop-types'
 import cx from 'classnames'
-
-import Typography from 'material-ui/Typography'
 import { ListItem } from 'material-ui/List'
 import { CircularProgress } from 'material-ui/Progress'
-
+import Typography from 'material-ui/Typography'
+import PropTypes from 'prop-types'
 import s from './drawer.scss'
 
 export const MenuItem = ({ Icon, title, isActive, isLoading }) => (

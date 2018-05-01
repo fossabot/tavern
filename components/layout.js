@@ -1,16 +1,14 @@
-import PropTypes from 'prop-types'
-import { SheetsRegistry } from 'react-jss/lib/jss'
-import JssProvider from 'react-jss/lib/JssProvider'
-import { minify } from 'csso'
-import Head from 'next/head'
-
-import { MuiThemeProvider, createMuiTheme, createGenerateClassName } from 'material-ui/styles'
-
 import MenuBar from '@components/menuBar'
 import MenuDrawer from '@components/menuDrawer'
 import ProgressBar from '@components/progressBar'
-import resetCss from './reset.css'
+import { minify } from 'csso'
+import { MuiThemeProvider, createGenerateClassName, createMuiTheme } from 'material-ui/styles'
+import Head from 'next/head'
+import PropTypes from 'prop-types'
+import JssProvider from 'react-jss/lib/JssProvider'
+import { SheetsRegistry } from 'react-jss/lib/jss'
 import s from './layout.scss'
+import resetCss from './reset.css'
 
 const sheetsRegistry = new SheetsRegistry()
 const generateClassName = createGenerateClassName()

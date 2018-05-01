@@ -2,10 +2,10 @@
   "env": {
     "development": {
       "presets": [
+        ["@babel/preset-env", { "targets": { "node": "current" } }],
         ["next/babel", {
           "preset-env": {
             "modules": false,
-            "useBuiltIns": "usage",
             "loose": true
           }
         }]
@@ -13,10 +13,10 @@
     },
     "production": {
       "presets": [
+        ["@babel/preset-env", { "targets": { "node": "current" } }],
         ["next/babel", {
           "preset-env": {
             "modules": false,
-            "useBuiltIns": "usage",
             "loose": true
           }
         }]
@@ -24,10 +24,10 @@
     },
     "test": {
       "presets": [
+        ["@babel/preset-env", { "targets": { "node": "current" } }],
         ["next/babel", {
           "preset-env": {
             "modules": "commonjs",
-            "useBuiltIns": "usage",
             "loose": true
           }
         }]

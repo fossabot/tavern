@@ -1,5 +1,4 @@
 {
-  "editor.tabSize": 2,
   "files.exclude": {
     "**/.git": true,
     "**/.svn": true,
@@ -8,5 +7,5 @@
     "**/.DS_Store": true,
     "**/.tmp-chrome": true
   },
-  "workbench.colorTheme": "Monokai",
+  "workbench.colorTheme": "Yule Contrast (rainglow)"
 }

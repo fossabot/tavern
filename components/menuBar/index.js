@@ -1,15 +1,12 @@
-import PropTypes from 'prop-types'
-import { connect } from 'react-redux'
-
+import { LoginButton, LoginDialog } from '@components/login'
+import { drawerActions } from '@reducers/drawer'
+import MenuIcon from 'material-ui-icons/Menu'
 import AppBar from 'material-ui/AppBar'
 import IconButton from 'material-ui/IconButton'
 import Toolbar from 'material-ui/Toolbar'
 import Typography from 'material-ui/Typography'
-
-import MenuIcon from 'material-ui-icons/Menu'
-
-import { LoginButton, LoginDialog } from '@components/login'
-import { drawerActions } from '@reducers/drawer'
+import PropTypes from 'prop-types'
+import { connect } from 'react-redux'
 import s from './menuBar.scss'
 
 export const MenuBar = ({

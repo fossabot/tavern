@@ -1,7 +1,6 @@
-import PropTypes from 'prop-types'
 import Router, { withRouter } from 'next/router'
+import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-
 import s from './activeLink.scss'
 
 export const ActiveLink = ({

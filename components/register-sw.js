@@ -58,45 +58,44 @@ export default function register ({ location, navigator, addEventListener } = {}
         console.warn('No internet connection found. App is running in offline mode.')
       })
   }
-  if (location) {
-    if (NODE_ENV === 'production' && 'serviceWorker' in navigator) {
-      // The URL constructor is available in all browsers that support SW.
-      const publicUrl = new URL(PUBLIC_URL, location)
-      if (!/^https/.test(location.origin) || publicUrl.origin !== location.origin) {
-        // Our service worker won't work if publicUrl is on a different origin
-        // from what our page is served on. This might happen if a CDN is used to
-        // serve assets; see https://github.com/facebookincubator/create-react-app/issues/2374
-        return
-      }
 
-      const isLocalhost = Boolean(
-        location.hostname === 'localhost'
-          // [::1] is the IPv6 localhost address.
-          || location.hostname === '[::1]'
-          // 127.0.0.1/8 is considered localhost for IPv4.
-          || location.hostname.match(
-            /^127(?:\.(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)){3}$/
-          )
-      )
-
-      addEventListener('load', () => {
-        const swUrl = `${PUBLIC_URL}/service-worker.js`
-
-        if (isLocalhost) {
-          // This is running on localhost. Lets check if a service worker still exists or not.
-          checkValidServiceWorker(swUrl)
-
-          // Add some additional infoging to localhost, pointing developers to the
-          // service worker/PWA documentation.
-          navigator.serviceWorker.ready.then(() => {
-            console.info('This web app is being served cache-first by a service worker. To learn more, visit https://goo.gl/SC7cgQ')
-          })
-        } else {
-          // Is not local host. Just register service worker
-          registerValidSW(swUrl)
-        }
-      })
+  if (location && NODE_ENV === 'production' && 'serviceWorker' in navigator) {
+    // The URL constructor is available in all browsers that support SW.
+    const publicUrl = new URL(PUBLIC_URL, location)
+    if (!/^https/.test(location.origin) || publicUrl.origin !== location.origin) {
+      // Our service worker won't work if publicUrl is on a different origin
+      // from what our page is served on. This might happen if a CDN is used to
+      // serve assets; see https://github.com/facebookincubator/create-react-app/issues/2374
+      return
     }
+
+    const isLocalhost = Boolean(
+      location.hostname === 'localhost'
+        // [::1] is the IPv6 localhost address.
+        || location.hostname === '[::1]'
+        // 127.0.0.1/8 is considered localhost for IPv4.
+        || location.hostname.match(
+          /^127(?:\.(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)){3}$/
+        )
+    )
+
+    addEventListener('load', () => {
+      const swUrl = `${PUBLIC_URL}/service-worker.js`
+
+      if (isLocalhost) {
+        // This is running on localhost. Lets check if a service worker still exists or not.
+        checkValidServiceWorker(swUrl)
+
+        // Add some additional infoging to localhost, pointing developers to the
+        // service worker/PWA documentation.
+        navigator.serviceWorker.ready.then(() => {
+          console.info('This web app is being served cache-first by a service worker. To learn more, visit https://goo.gl/SC7cgQ')
+        })
+      } else {
+        // Is not local host. Just register service worker
+        registerValidSW(swUrl)
+      }
+    })
   }
 }
 

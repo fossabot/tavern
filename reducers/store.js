@@ -1,4 +1,4 @@
-import { createStore, combineReducers } from 'redux'
+import { combineReducers, createStore } from 'redux'
 
 import app from './app'
 import drawer from './drawer'

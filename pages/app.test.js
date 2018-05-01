@@ -1,7 +1,6 @@
 /* global describe, it, expect */
 import React from 'react'
 import { mount } from 'enzyme'
-
 import App from './'
 
 describe('Rendering should work', () => {
