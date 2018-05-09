@@ -1,0 +1,25 @@
+.item {
+  padding-right: 25px !important;
+  &:hover {
+    cursor: pointer;
+  }
+  &.itemActive {
+    border-right: 5px solid #9a2e57;
+    svg {
+      color: #9a2e57;
+    }
+    &:hover {
+      cursor: default;
+      svg {
+        color: #9a2e57;
+      }
+    }
+  }
+}
+.itemIcon {
+  margin-right: 15px;
+}
+
+.itemLoading {
+  margin-right: -25px;
+}

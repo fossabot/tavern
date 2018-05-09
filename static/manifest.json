@@ -1,0 +1,22 @@
+{
+  "name": "Tavern RPG Platform",
+  "default_locale": "en",
+  "description": "A complete narrative RPG online platform",
+  "display": "standalone",
+  "short_name": "Tavern",
+  "start_url": "/?utm_source=homescreen",
+  "theme_color": "#283618",
+  "background_color": "#ffffff",
+  "icons": [
+    {
+      "src": "/static/logo/tavern-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/static/logo/tavern-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+   }
+  ]
+}

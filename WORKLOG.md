@@ -1,5 +1,15 @@
-# Register characters and NPCs data
+# WORKLOG
 
-- [] Make a page to insert the data needed and store it.
-  - [] Register characters and NPCs data
-  - [] Add chars/NPCs
+## WORKING
+
+- [ ] Register new Player/User
+
+## TODO
+
+- [ ] Create Characters/NPCs
+- [ ] Create Boards
+- [ ] Create Characters/NPCs to Boards
+
+## BACKLOG
+
+`¯\_(ツ)_/¯`

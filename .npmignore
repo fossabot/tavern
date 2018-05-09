@@ -11,28 +11,30 @@
 
 # misc
 .DS_Store
-
-# env files
 .env.local
 .env.development.local
 .env.test.local
 .env.production.local
 .env
 .env.test
-.env.production
+.env.development
 
-# Package manager files
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+.tmp-chrome
+.next
+stats.json
 package-lock.json
 
-# Local chrome profile
-.tmp-chrome
-
-# Next.js build
-.next
-
-# Integration tests output
-integration/screenshots/narrow/
-integration/screenshots/wide/
+/integration
+/WORKLOG.md
+**/__snapshots__/**
+**/*.test.js
+ecosystem.config.js
+.travis.yml
+.editorconfig
+.vscode
+.build
+/_templates

@@ -1,14 +1,37 @@
 {
-  "presets": ["env", "preact"],
-  "plugins": [
-    "transform-function-bind",
-    ["transform-react-jsx", { "pragma": "h" }],
-    ["module-resolver", {
-      "root": ["."],
-      "alias": {
-        "@app": "./src"
-      }
-    }],
-    "transform-object-rest-spread"
-  ]
+  "env": {
+    "development": {
+      "presets": [
+        ["@babel/preset-env", { "targets": { "node": "current" } }],
+        ["next/babel", {
+          "preset-env": {
+            "modules": false,
+            "loose": true
+          }
+        }]
+      ]
+    },
+    "production": {
+      "presets": [
+        ["@babel/preset-env", { "targets": { "node": "current" } }],
+        ["next/babel", {
+          "preset-env": {
+            "modules": false,
+            "loose": true
+          }
+        }]
+      ]
+    },
+    "test": {
+      "presets": [
+        ["@babel/preset-env", { "targets": { "node": "current" } }],
+        ["next/babel", {
+          "preset-env": {
+            "modules": "commonjs",
+            "loose": true
+          }
+        }]
+      ]
+    }
+  }
 }

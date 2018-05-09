@@ -1,0 +1,17 @@
+language: node_js
+
+node_js:
+  - 'node'
+  - '9'
+
+cache: yarn
+
+before_install:
+  - npm install -g license-cli
+
+before_script:
+  - license-cli auth c1487d650f1c476b7c6c869cdf099654
+  - license-cli scan -r $TRAVIS_COMMIT
+
+script:
+  - yarn test
